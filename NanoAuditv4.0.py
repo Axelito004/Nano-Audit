@@ -2,7 +2,11 @@
 # Instalar dependencias:
 # sudo python3 -m pip install google-generativeai python-dotenv colorama pyfiglet python-nmap fpdf --break-system-packages
 # sudo apt install clamav
-
+#despues de instalar ClamAV
+#1. sudo systemctl stop clamav-freshclam    
+#2.sudo freshclam
+#3. sudo systemctl start clamav-freshclam 
+#Y LISTO! Ya puedes usar mi software sin problemas.
 import os
 import sys
 import time
