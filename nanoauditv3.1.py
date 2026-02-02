@@ -205,8 +205,8 @@ def modulo_disco():
         banner()
         print(f"{G}[ MÓDULO DISCO: FORENSE PROFUNDO ]{W}")
         print("1. Identificar punto de montaje (lsblk)")
-        print("2. 🏴‍☠️  Buscar Cracks/Activadores (KMS, Office, Windows)")
-        print("3. ☣️  Escaneo TOTAL de Virus (Usa motor ClamAV)")
+        print("2. Buscar Cracks/Activadores (KMS, Office, Windows)")
+        print("3. Escaneo TOTAL de Virus (Usa motor ClamAV)")
         print("0. Volver")
         
         opcion = input(f"\n{G}NanoAudit/Disco > {W}")
