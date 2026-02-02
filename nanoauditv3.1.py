@@ -22,8 +22,9 @@ def limpiar(): os.system('clear')
 
 def banner():
     limpiar()
-    f = Figlet(font='slant')
+    f = Figlet(font='doom')
     print(C + f.renderText('NanoAudit'))
+    print(W + "    ::: v3.1 | NANO AUDIT:::\n")
     print(W + "    ::: v3.1 | Full Disk Scan + IA :::\n")
     print(W + "    ::: v3.1 (Stable) | By: AXL-HACKING (ANGELITO PARA LOS AMIGOS) :::\n")
 
@@ -55,9 +56,9 @@ def consultar_ia(contexto, datos):
         {datos[:4000]} (Resumen)
         
         Genera reporte:
-        1. 🧐 ANÁLISIS: ¿Qué amenazas hay? (Virus, Cracks, Backdoors).
-        2. 💀 RIESGO: ¿Qué pueden hacerle al sistema?
-        3. 🛡️ ACCIÓN: ¿Borrar, Cuarentena o Ignorar?
+        1. ANÁLISIS: ¿Qué amenazas hay? (Virus, Cracks, Backdoors).
+        2. RIESGO: ¿Qué pueden hacerle al sistema?
+        3. ACCIÓN: ¿Borrar, Cuarentena o Ignorar?
         """
         response = model.generate_content(prompt)
         return f"\n{C}--- REPORTE INTELIGENTE ---{W}\n{response.text}\n{C}---------------------------{W}"
@@ -160,26 +161,39 @@ def buscar_cracks_y_activadores(ruta_montaje):
     return "\n".join(hallazgos) if hallazgos else "No se encontraron activadores comunes por nombre."
 
 def escanear_antivirus_completo(ruta_montaje):
-    """Ejecuta ClamAV sobre la partición montada"""
+    """Ejecuta ClamAV sobre la partición montada con manejo de errores de DB"""
     print(f"\n{Y}[*] Iniciando Motor Antivirus (ClamAV) sobre toda la partición...{W}")
-    print(f"{C}    Esto puede tardar dependiendo del tamaño del disco.{W}")
+    print(f"{C}    Esto puede tardar minutos. Si es la primera vez, asegúrate de haber actualizado la DB.{W}")
     
-    # Comando: clamscan -r (recursivo) -i (solo mostrar infectados) --no-summary
+    # Comando: clamscan -r (recursivo) -i (solo infectados)
     comando = ["clamscan", "-r", ruta_montaje, "-i"]
     
     try:
-        # Ejecutamos el proceso y capturamos la salida
         proceso = subprocess.run(comando, capture_output=True, text=True)
-        
         salida = proceso.stdout
-        if proceso.returncode == 1: # 1 significa virus encontrado en ClamAV
+        error_log = proceso.stderr
+
+        # --- CASO 1: AMENAZAS ENCONTRADAS (Exit Code 1) ---
+        if proceso.returncode == 1: 
             print(f"\n{R}[!!!] AMENAZAS DETECTADAS:{W}")
             print(salida)
             return salida
+        
+        # --- CASO 2: SISTEMA LIMPIO (Exit Code 0) ---
         elif proceso.returncode == 0:
-            return "Escaneo completado. Sistema limpio (Según ClamAV)."
+            return "Escaneo completado exitosamente. Sistema limpio (Según ClamAV)."
+        
+        # --- CASO 3: ERROR DE BASE DE DATOS (Exit Code 2 generalmente) ---
         else:
-            return f"Error en ClamAV: {proceso.stderr}"
+            # Buscamos el error específico de "No supported database"
+            if "No supported database files" in error_log:
+                print(f"\n{R}[ERROR CRÍTICO] ClamAV no tiene base de datos de virus.{W}")
+                print(f"{Y}SOLUCIÓN: Ejecuta estos comandos en una terminal aparte y vuelve a intentar:{W}")
+                print(f"{C}1. sudo systemctl stop clamav-freshclam{W}")
+                print(f"{C}2. sudo freshclam{W}")
+                return "Error: Base de datos de virus vacía. Se requiere actualización manual (freshclam)."
+            else:
+                return f"Error desconocido en ClamAV: {error_log}"
             
     except FileNotFoundError:
         return "ERROR: ClamAV no está instalado. Ejecuta: sudo apt install clamav"
