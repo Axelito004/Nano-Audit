@@ -22,7 +22,7 @@ def limpiar(): os.system('clear')
 
 def banner():
     limpiar()
-    f = Figlet(font='doom')
+    f = Figlet(font='small')
     print(C + f.renderText('NanoAudit'))
     print(W + "    ::: v3.1 | NANO AUDIT:::\n")
     print(W + "    ::: v3.1 | Full Disk Scan + IA :::\n")
