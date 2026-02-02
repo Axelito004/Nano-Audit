@@ -1,0 +1,222 @@
+ -> ALERTA VULN (vulners): 
+  cpe:/a:boa:boa:0.94.13: 
+        CVE-2018-21027  9.8     https://vulners.com/cve/CVE-2018-21027
+        CVE-2021-33558  7.5     https://vulners.com/cve/CVE-2021-33558
+        CVE-2018-21028  7.5     https://vulners.com/cve/CVE-2018-21028
+        5CA8912F-DD9C-5C61-B531-3A008D744511    7.5     https://vulners.com/githubexploit/5CA8912F-DD9C-5C61-B531-3A008D744511  *EXPLOIT*
+        CVE-2022-45956  5.3     https://vulners.com/cve/CVE-2022-45956
+    -> ALERTA VULN (http-vuln-cve2010-0738): 
+  /jmx-console/: Authentication was not required
+
+    -> ALERTA VULN (http-stored-xss): Couldn't find any stored XSS vulnerabilities.
+    -> ALERTA VULN (http-trane-info): Problem with XML parsing of /evox/about
+    -> ALERTA VULN (http-dombased-xss): Couldn't find any DOM based XSS.
+    -> ALERTA VULN (http-fileupload-exploiter): 
+  
+    Couldn't find a file-type field.
+  
+    Couldn't find a file-type field.
+  
+    Couldn't find a file-type field.
+  
+    Couldn't find a file-type field.
+    -> ALERTA VULN (http-csrf): 
+Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.1.1
+  Found the following possible CSRF vulnerabilities: 
+    
+    Path: http://192.168.1.1:80/
+    Form id: login_form
+    Form action: /boaform/admin/formLogin
+    
+    Path: http://192.168.1.1:80/custom/ico.ico
+    Form id: login_form
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:80/vendor/jquery/r.href1                                                                                                                                                                          
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:80/vendor/jquery/                                                                                                                                                                                 
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    -> ALERTA VULN (http-server-header): Boa/0.94.13
+    -> ALERTA VULN (http-majordomo2-dir-traversal): ERROR: Script execution failed (use -d to debug)
+    -> ALERTA VULN (http-vuln-cve2017-1001000): ERROR: Script execution failed (use -d to debug)
+[+] Puerto 161/tcp: snmp  
+[+] Puerto 443/tcp: http Boa HTTPd 0.94.13
+    -> ALERTA VULN (http-vuln-cve2014-3704): ERROR: Script execution failed (use -d to debug)
+    -> ALERTA VULN (http-csrf): 
+Spidering limited to: maxdepth=3; maxpagecount=20; withinhost=192.168.1.1                                                                                                                                                      
+  Found the following possible CSRF vulnerabilities:                                                                                                                                                                           
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/                                                                                                                                                                                              
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/custom/ico.ico                                                                                                                                                                                
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/custom/js/jquery.form.js                                                                                                                                                                      
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/custom/vendor/jquery/jquery.min.js                                                                                                                                                            
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/custom/js/varify_code.js                                                                                                                                                                      
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/custom/js/sweetalert.min.js                                                                                                                                                                   
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/custom/custom/ico.ico                                                                                                                                                                         
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/custom/css/sb-admin-2.min.css                                                                                                                                                                 
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/custom/custom/custom.css                                                                                                                                                                      
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    Path: http://192.168.1.1:443/custom/js/Auto_Page_generate.js                                                                                                                                                               
+    Form id: login_form                                                                                                                                                                                                        
+    Form action: /boaform/admin/formLogin                                                                                                                                                                                      
+                                                                                                                                                                                                                               
+    -> ALERTA VULN (ssl-poodle): 
+  VULNERABLE:                                                                                                                                                                                                                  
+  SSL POODLE information leak                                                                                                                                                                                                  
+    State: LIKELY VULNERABLE                                                                                                                                                                                                   
+    IDs:  CVE:CVE-2014-3566  BID:70574                                                                                                                                                                                         
+          The SSL protocol 3.0, as used in OpenSSL through 1.0.1i and other                                                                                                                                                    
+          products, uses nondeterministic CBC padding, which makes it easier                                                                                                                                                   
+          for man-in-the-middle attackers to obtain cleartext data via a                                                                                                                                                       
+          padding-oracle attack, aka the "POODLE" issue.                                                                                                                                                                       
+    Disclosure date: 2014-10-14                                                                                                                                                                                                
+    Check results:                                                                                                                                                                                                             
+      TLS_RSA_WITH_AES_128_CBC_SHA                                                                                                                                                                                             
+      TLS_FALLBACK_SCSV properly implemented                                                                                                                                                                                   
+    References:                                                                                                                                                                                                                
+      https://www.imperialviolet.org/2014/10/14/poodle.html                                                                                                                                                                    
+      https://www.openssl.org/~bodo/ssl-poodle.pdf                                                                                                                                                                             
+      https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-3566                                                                                                                                                             
+      https://www.securityfocus.com/bid/70574                                                                                                                                                                                  
+                                                                                                                                                                                                                               
+    -> ALERTA VULN (http-fileupload-exploiter): 
+                                                                                                                                                                                                                               
+    Couldn't find a file-type field.                                                                                                                                                                                           
+                                                                                                                                                                                                                               
+    Couldn't find a file-type field.                                                                                                                                                                                           
+    -> ALERTA VULN (http-aspnet-debug): ERROR: Script execution failed (use -d to debug)
+    -> ALERTA VULN (vulners): 
+  cpe:/a:boa:boa:0.94.13:                                                                                                                                                                                                      
+        CVE-2018-21027  9.8     https://vulners.com/cve/CVE-2018-21027                                                                                                                                                         
+        CVE-2021-33558  7.5     https://vulners.com/cve/CVE-2021-33558                                                                                                                                                         
+        CVE-2018-21028  7.5     https://vulners.com/cve/CVE-2018-21028                                                                                                                                                         
+        5CA8912F-DD9C-5C61-B531-3A008D744511    7.5     https://vulners.com/githubexploit/5CA8912F-DD9C-5C61-B531-3A008D744511  *EXPLOIT*                                                                                      
+        CVE-2022-45956  5.3     https://vulners.com/cve/CVE-2022-45956                                                                                                                                                         
+    -> ALERTA VULN (http-stored-xss): Couldn't find any stored XSS vulnerabilities.
+    -> ALERTA VULN (http-server-header): Boa/0.94.13
+    -> ALERTA VULN (http-dombased-xss): Couldn't find any DOM based XSS.
+[+] Puerto 631/tcp: ipp  
+    -> ALERTA VULN (http-vuln-cve2014-3704): ERROR: Script execution failed (use -d to debug)
+    -> ALERTA VULN (http-aspnet-debug): ERROR: Script execution failed (use -d to debug)
+[+] Puerto 9100/tcp: jetdirect  
+
+[⚡] Analizando con Gemini 2.5 Flash...
+
+--- 🤖 REPORTE IA 2.5 ---
+¡Excelente! Con estos datos, tengo una imagen clara de las oportunidades de explotación en este sistema. Vamos a desglosar esto desde una perspectiva ofensiva.
+
+---
+
+### Reporte de Auditoría de Ciberseguridad Ofensiva
+
+**1. 🧐 ANÁLISIS: ¿Qué es esto?**
+
+Este sistema expone múltiples servicios de red, varios de los cuales están críticamente desactualizados y mal configurados, ofreciendo una superficie de ataque muy amplia y múltiples vectores de compromiso directo.
+
+*   **Servicios Obsoletos y Vulnerables:**
+    *   **Boa HTTPd 0.94.13 (Puertos 80/443):** El servidor web es una versión extremadamente antigua con **múltiples vulnerabilidades de alta criticidad (CVSS 9.8)**, incluyendo al menos **un exploit público confirmado (5CA8912F-DD9C-5C61-B531-3A008D744511)**. Esto indica una alta probabilidad de **Ejecución Remota de Código (RCE)**.
+    *   **JMX Console Abierta (Puerto 80):** `/jmx-console/` está accesible sin autenticación, lo que es un vector común para RCE y control total del servidor de aplicaciones subyacente.
+    *   **Telnet Abierto (Puerto 23):** Telnet transmite credenciales y datos en texto plano, lo cual es inaceptable en cualquier entorno de producción.
+    *   **SSL POODLE (Puerto 443):** La presencia de SSLv3 con vulnerabilidad POODLE (CVE-2014-3566) permite ataques de fuga de información y downgrade.
+    *   **FTP (Puerto 21):** Aunque no se detallan vulnerabilidades específicas, FTP es un protocolo inherentemente inseguro para la transferencia de credenciales si no se usa FTPS/SFTP.
+    *   **SNMP (Puerto 161):** Sin información de configuración, pero es un puerto común para la divulgación de información sensible (e.g., versión del SO, hardware, configuraciones) si se usan cadenas de comunidad predeterminadas o débiles.
+
+*   **Vulnerabilidades Adicionales:**
+    *   **CSRF (Puertos 80/443):** Múltiples formularios de inicio de sesión (/boaform/admin/formLogin) son susceptibles a ataques CSRF, lo que podría permitir a un atacante engañar a un usuario autenticado para que realice acciones no deseadas.
+    *   **HTTP Server Header (Boa/0.94.13):** Divulga la versión del software, facilitando la búsqueda de exploits.
+
+*   **Observaciones:** Los scripts para otras vulnerabilidades (`http-vuln-cve2010-0738`, `http-majordomo2-dir-traversal`, `http-vuln-cve2017-1001000`, `http-vuln-cve2014-3704`, `http-aspnet-debug`) fallaron en su ejecución, lo que no necesariamente significa que el sistema sea inmune, sino que la herramienta no pudo validar su existencia. Las fallas en los scripts también podrían indicar un sistema extremadamente inestable o configuraciones inesperadas.
+
+**2. 💀 RIESGO: Nivel y explicación.**
+
+**Nivel de Riesgo: CRÍTICO**
+
+Este sistema es extremadamente vulnerable a un compromiso completo con una dificultad baja para un atacante medianamente experimentado. La combinación de un servidor web obsoleto con RCE conocido, una consola JMX sin autenticación, y Telnet abierto, crea una cadena de ataque casi trivial para obtener acceso a la red interna y la ejecución de comandos.
+
+*   **RCE y Acceso al Sistema:** La vulnerabilidad CVE-2018-21027 en Boa HTTPd, junto con el exploit público existente, permite a un atacante remoto ejecutar comandos arbitrarios en el servidor web. La consola JMX sin autenticación ofrece otra ruta directa para la ejecución de código. Esto significa que el atacante puede tomar el control total del servidor afectado.
+*   **Fuga de Información Sensible:** Telnet permite la intercepción de credenciales en texto plano. POODLE puede llevar a la fuga de cookies o datos de sesión. SNMP mal configurado puede revelar información crítica sobre la infraestructura.
+*   **Acceso No Autorizado y Persistencia:** Una vez que se obtenga RCE, el atacante puede establecer persistencia, escalar privilegios, pivotar a otros sistemas en la red, robar datos o lanzar ataques de denegación de servicio.
+*   **Ingeniería Social:** Las vulnerabilidades CSRF pueden ser explotadas en combinación con ataques de phishing para realizar acciones en nombre de usuarios legítimos.
+
+**3. 🛡️ SOLUCIÓN: Comando o mitigación exacta.**
+
+Se requiere una acción inmediata para remediar estas vulnerabilidades críticas.
+
+*   **Acciones Inmediatas (Prioridad Alta):**
+    *   **Boa HTTPd (Puertos 80/443):**
+        *   **Mitigación:** Desinstalar Boa HTTPd 0.94.13 inmediatamente.
+        *   **Solución:** Reemplazar el servidor web con una alternativa moderna, con soporte y actualizada (e.g., Nginx, Apache HTTP Server). Si el Boa HTTPd es parte de un dispositivo empotrado (IoT/firmware), buscar y aplicar la actualización de firmware más reciente del fabricante que corrija estas CVEs. Si no existe un parche, considerar el retiro del dispositivo de la red.
+    *   **JMX Console Abierta (`/jmx-console/` en Puerto 80):**
+        *   **Mitigación:** Bloquear el acceso a `/jmx-console/` a nivel de firewall o servidor web.
+        *   **Solución:** Implementar autenticación robusta y control de acceso basado en roles para la consola JMX. Idealmente, solo debería ser accesible desde la red local de administración o mediante una VPN segura. Si no se utiliza, deshabilitar completamente la funcionalidad JMX.
+    *   **Telnet (Puerto 23):**
+        *   **Mitigación:** Deshabilitar el servicio Telnet.
+        *   **Comando (ejemplo en Linux/Unix):**
+            ```bash
+            sudo systemctl stop telnet.socket
+            sudo systemctl disable telnet.socket
+            # O en sistemas más antiguos:
+            sudo service telnet stop
+            sudo update-rc.d telnet disable
+            ```
+        *   **Solución:** Forzar el uso exclusivo de SSH (Puerto 22) para el acceso remoto, asegurando que SSH esté configurado de forma segura (autenticación con claves, no perminos).
+    *   **SSL POODLE (Puerto 443):**
+        *   **Mitigación:** Deshabilitar el protocolo SSLv3 en la configuración del servidor web.
+        *   **Solución:** Configurar el servidor web para utilizar exclusivamente versiones modernas de TLS (TLS 1.2 o TLS 1.3).
+        *   **Ejemplo (configuración Apache/Nginx, adaptar a Boa si fuera posible):**
+            ```
+            # En Apache:
+            SSLProtocol all -SSLv2 -SSLv3 -TLSv1 -TLSv1.1
+            SSLCipherSuite EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH
+            # En Nginx:
+            ssl_protocols TLSv1.2 TLSv1.3;
+            ssl_ciphers 'TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384';
+            ```
+
+*   **Acciones Secundarias (Importantes):**
+    *   **FTP (Puerto 21):**
+        *   **Mitigación:** Deshabilitar el servicio FTP si no es estrictamente necesario.
+        *   **Solución:** Si es esencial, migrar a SFTP (sobre SSH) o FTPS (FTP sobre SSL/TLS) y forzar el uso de credenciales fuertes.
+    *   **SNMP (Puerto 161):**
+        *   **Mitigación:** Deshabilitar el servicio SNMP si no se utiliza.
+        *   **Solución:** Si es necesario, configurar SNMPv3 con autenticación y cifrado fuertes. Cambiar todas las cadenas de comunidad predeterminadas (ej. "public", "private") ngir el acceso a SNMP solo a direcciones IP de gestión autorizadas.
+    *   **CSRF (Puertos 80/443):**
+        *   **Solución:** Implementar tokens anti-CSRF en todos los formularios de la aplicación web, especialmente en los formularios de inicio de sesión y acciones sensibles.
+    *   **SSH (Puerto 22):**
+        *   **Solución:** Configurar SSH para usar autenticación basada en claves, deshabilitar el inicio de sesión de root, limitar los intentos de autenticación fallidos y usar 
+    *   **IPP (Puerto 631) y Jetdirect (Puerto 9100):**
+        *   **Mitigación:** Deshabilitar estos servicios de impresión si no son estrictamente necesarios para el funcionamiento del dispositivo.
+        *   **Solución:** Si son necesarios, restringir el acceso a direcciones IP de red específicas y monitorear cualquier actividad inusual.
+
+**Recomendación General:** Realizar una auditoría de seguridad profunda del sistema una vez que se hayan aplicado estas mitigaciones para asegurar que no queden otras puertas trasmentar un plan de gestión de parches y actualizaciones de software.
+-----------------------
