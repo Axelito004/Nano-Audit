@@ -289,14 +289,15 @@ def buscar_cracks(ruta):
                         if p.lower() in f.lower():
                             print(f"{R}[!] {f}{W}")
                             hallazgos.append(f"File: {f} Path: {root}")
-    return "\n".join(hallazgos) if hallazgos else "Limpio"
+    return "\n".join(hallazgos) if hallazgos else print(f"{C}Limpio.{W}") 
+
 
 def escanear_av(ruta):
     print(f"\n{Y}[*] ClamAV Full Scan...{W}")
     try:
         proc = subprocess.run(["clamscan", "-r", ruta, "-i"], capture_output=True, text=True)
         if proc.returncode == 1: return f"AMENAZAS:\n{proc.stdout}"
-        elif proc.returncode == 0: return "Limpio"
+        elif proc.returncode == 0: return print(f"{C}Limpio.{W}") 
         else: return "Error DB (sudo freshclam)" if "database" in proc.stderr else str(proc.stderr)
     except: return "Error ClamAV"
 
@@ -318,7 +319,7 @@ def modulo_disco():
             if os.path.exists(r):
                 res = buscar_cracks(r)
                 if res != "Limpio": consultar_ia("Pirateria Detectada", res)
-                else: print(f"{G}Limpio.{W}")
+                else: print(f"{C}La I.A Descansara por hoy... Todo en orden{W}")
             input(f"\n{C}[Enter]...{W}")
         elif op == '3':
             r = input(f"\n{Y}Ruta: {W}").strip().replace("'","")
@@ -326,6 +327,7 @@ def modulo_disco():
                 res = escanear_av(r)
                 print(res)
                 if "AMENAZAS" in res: consultar_ia("Virus Detectado", res)
+                else: print(f"{C}La I.A Descansara por hoy... Todo en orden{W}")
             input(f"\n{C}[Enter]...{W}")
         elif op == '0': break
 
