@@ -193,9 +193,46 @@ def modulo_red():
         opcion = input(f"\n{G}NanoAudit/Red > {W}")
 
         if opcion == '1':
-            t = input(f"\n{G}IP: {W}")
-            ping_inteligente(t)
-            input(f"\n{C}[Enter]...{W}")
+           
+            print(f"\n{C}INFO: Puedes ingresar una IP única (192.168.1.50){W}")
+            print(f"{C}      O un rango de red completo (192.168.1.0/24){W}")
+            t = input(f"\n{Y}Objetivo > {W}")
+            
+            nm = nmap.PortScanner()
+            animacion_carga(f"Escaneando red {t}")
+            
+            # -sn: Ping Scan (No port scan), -PE: ICMP Echo
+            try:
+                nm.scan(hosts=t, arguments='-sn')
+                lista_hosts = nm.all_hosts()
+                
+                print(f"\n{G}--- DISPOSITIVOS ENCONTRADOS ({len(lista_hosts)}) ---{W}")
+                print(f"{'IP':<20} {'ESTADO':<10} {'HOSTNAME/MAC'}")
+                print("-" * 50)
+                
+                if len(lista_hosts) > 0:
+                    for host in lista_hosts:
+                        estado = nm[host].state()
+                        # Intentamos sacar el hostname o la MAC si es local
+                        try:
+                            nombre = nm[host].hostname() if nm[host].hostname() else "(Desconocido)"
+                            # Si hay MAC, es más útil que el nombre a veces
+                            if 'addresses' in nm[host] and 'mac' in nm[host]['addresses']:
+                                extra = f"MAC: {nm[host]['addresses']['mac']}"
+                            else:
+                                extra = nombre
+                        except:
+                            extra = "---"
+                            
+                        print(f"{host:<20} {G}{estado.upper()}{W}      {extra}")
+                else:
+                    print(f"{R}No se encontraron dispositivos vivos en ese rango.{W}")
+                    print(f"{Y}Tip: Verifica que la IP/CIDR sea correcta.{W}")
+
+            except Exception as e:
+                print(f"{R}Error en el escaneo: {e}{W}")
+                
+            input(f"\n{C}[Enter] para continuar...{W}")    
 
         elif opcion == '2':
             t = input(f"\n{Y}IP: {W}")
@@ -269,7 +306,7 @@ def modulo_disco():
         print(f"{C}[ MÓDULO DISCO ]{W}")
         print(f"{G}1. 🟢 Ver Montajes (lsblk)")
         print(f"{Y}2. 🟡 Buscar Cracks (Heurística)")
-        print(f"{Y}3. 🔴 Escaneo Virus (ClamAV)")
+        print(f"{R}3. 🔴 Escaneo Virus (ClamAV)")
         print("0. Volver")
         
         op = input(f"\n{G}NanoAudit/Disco > {W}")
