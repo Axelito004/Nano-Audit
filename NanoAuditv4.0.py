@@ -96,7 +96,7 @@ def consultar_ia(contexto, datos):
 
     # Datos para el encabezado
     fecha_hora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    auditor = "Ing.Ángel G. Castillo G."
+    auditor = f"{R}Ing.Ángel G. Castillo G.{W}"
     
     print(f"\n{Y}[⚡] Conectando con Gemini 2.5... (Espere){W}")
     
