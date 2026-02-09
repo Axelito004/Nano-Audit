@@ -57,7 +57,7 @@ def animacion_carga(texto):
 class PDFReport(FPDF):
     def header(self):
         self.set_font('Arial', 'B', 15)
-        self.cell(0, 10, 'NanoAudit - Reporte Tecnico', 0, 1, 'C')
+        self.cell(0, 10, 'NanoAudit - Informe Tecnico', 0, 1, 'C')
         self.ln(5)
 
     def footer(self):
