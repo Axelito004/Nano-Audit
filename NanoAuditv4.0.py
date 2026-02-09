@@ -96,7 +96,7 @@ def consultar_ia(contexto, datos):
 
     # Datos para el encabezado
     fecha_hora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    auditor = f"{R}Ing.Ángel G. Castillo G.{W}"
+    auditor = "Ing.Ángel G. Castillo G."
     
     print(f"\n{Y}[⚡] Conectando con Gemini 2.5... (Espere){W}")
     
@@ -109,7 +109,7 @@ def consultar_ia(contexto, datos):
         Analiza: {contexto}.
         DATOS RAW: {datos[:5000]}
         
-        Genera informe técnico (sin markdown, solo texto plano):
+        Genera informe técnico (sin markdown, ni fecha, ni hora, ni encabezado, solo texto plano):
         1. ANALISIS TECNICO: Que se encontro.
         2. IMPACTO: Riesgo para el negocio.
         3. SOLUCION: Comandos o pasos de mitigacion.
