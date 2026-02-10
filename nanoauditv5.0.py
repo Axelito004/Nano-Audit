@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Dependencias: sudo python3 -m pip install alsa-utils sox libsox-fmt-all google-generativeai python-dotenv colorama pyfiglet python-nmap fpdf --break-system-packages
+# Dependencias: sudo python3 -m pip install rar alsa-utils sox libsox-fmt-all google-generativeai python-dotenv colorama pyfiglet python-nmap fpdf --break-system-packages
 # sudo apt install clamav
 # NOTA: Ejecutar con sudo para que Nmap funcione en modo Flood.
 
@@ -278,6 +278,92 @@ def modulo_red():
 
         elif op == '0': break
 
+def escanear_av(ruta):
+        print(f"\n{Y}[*] Iniciando Motor de Análisis (ClamAV + UnRAR Wrapper)...{W}")
+    
+    # Carpeta temporal para descomprimir RARs (Oculta)
+        carpeta_temp = os.path.join(ruta, ".temp_scan_rar")
+        
+        spin = Spinner("Analizando estructura de archivos...")
+        spin.start()
+        
+        # 1. BÚSQUEDA Y EXTRACCIÓN MANUAL DE RARs
+        try:
+            hay_rars = False
+            if os.path.exists(ruta):
+                # Buscar archivos .rar
+                archivos_rar = []
+                for root, dirs, files in os.walk(ruta):
+                    for f in files:
+                        if f.lower().endswith(".rar"):
+                            archivos_rar.append(os.path.join(root, f))
+                
+                if archivos_rar:
+                    hay_rars = True
+                    if not os.path.exists(carpeta_temp):
+                        os.makedirs(carpeta_temp)
+                    
+                    # Descomprimir cada RAR encontrado usando 'unrar' del sistema
+                    # e = extract, -p- = sin contraseña, -y = sí a todo, -inul = silencio
+                    for rar_file in archivos_rar:
+                        subprocess.run(["unrar", "e", "-p-", "-y", "-inul", rar_file, carpeta_temp])
+
+        except Exception as e:
+            # Si falla la extracción manual, seguimos con el escaneo normal
+            pass
+
+        spin.stop()
+        
+        # 2. ESCANEO CON CLAMAV (Escanea la ruta original Y la temporal)
+        spin = Spinner("Buscando firmas de virus (Deep Scan)...")
+        spin.start()
+        
+        scan_output = ""
+        amenaza_detectada = False
+        
+        try:
+            # Escaneamos la ruta original
+            proc1 = subprocess.run(["clamscan", "-r", ruta, "-i"], capture_output=True, text=True)
+            
+            # Escaneamos la carpeta temporal (donde está lo de adentro del RAR)
+            proc2 = None
+            if hay_rars:
+                proc2 = subprocess.run(["clamscan", "-r", carpeta_temp, "-i"], capture_output=True, text=True)
+            
+            spin.stop()
+            reproducir_sonido_fin() 
+
+            # 3. PROCESAR RESULTADOS
+            resultado_final = ""
+            
+            # Resultados Ruta Original
+            if proc1.returncode == 1:
+                amenaza_detectada = True
+                resultado_final += f"{R}AMENAZAS EN ARCHIVOS VISIBLES:{W}\n{proc1.stdout}\n"
+            
+            # Resultados RARs Descomprimidos
+            if proc2 and proc2.returncode == 1:
+                amenaza_detectada = True
+                # Limpiamos la ruta fea temporal para que se vea bonito en el reporte
+                texto_limpio = proc2.stdout.replace(carpeta_temp, "[DENTRO DEL RAR]")
+                resultado_final += f"{R}AMENAZAS OCULTAS (RAR):{W}\n{texto_limpio}\n"
+
+            # 4. LIMPIEZA (Borrar carpeta temporal)
+            if os.path.exists(carpeta_temp):
+                import shutil
+                shutil.rmtree(carpeta_temp)
+
+            if amenaza_detectada:
+                return resultado_final
+            elif proc1.returncode == 0 and (not proc2 or proc2.returncode == 0):
+                return "Limpio"
+            else:
+                return f"Error en motor antivirus: {proc1.stderr}"
+
+        except Exception as e:
+            spin.stop()
+            return f"Error crítico: {e}"
+
 # --- MODULO DISCO ---
 def modulo_disco():
     while True:
@@ -316,23 +402,13 @@ def modulo_disco():
             input(f"\n{C}[Enter]...{W}")
 
         elif op == '3':
-            r = input(f"\n{Y}Ruta: {W}").replace("'","").strip()
-            spin = Spinner("ClamAV Escaneando (Paciencia)...")
-            spin.start()
-            try:
-                p = subprocess.run(["clamscan", "-r", r, "-i"], capture_output=True, text=True)
-                spin.stop()
-                reproducir_sonido_fin() # ¡Sonido aquí!
-                
-                if p.returncode == 1:
-                    print(f"{R}VIRUS ENCONTRADOS:{W}\n{p.stdout}")
-                    consultar_ia("Virus ClamAV", p.stdout)
-                elif p.returncode == 0: print(f"{G}Sistema Limpio.{W}")
-                else: print(f"{Y}Error/Advertencia: {p.stderr}{W}")
-            except: 
-                spin.stop()
-                print("Error ejecutando ClamAV")
-            input(f"\n{C}[Enter]...{W}")
+            ruta = input(f"\n{Y}Ruta: {W}").strip().replace("'","")
+            if os.path.exists(ruta):
+                res = escanear_av(ruta)
+                print(res)
+                if "AMENAZAS" in res: consultar_ia("Virus Detectado", res)
+                else: print(f"{C}La I.A Descansara por hoy... Todo en orden{W}")
+            input(f"\n{C}[Enter]...{W}")      
 
         elif op == '0': break
 
