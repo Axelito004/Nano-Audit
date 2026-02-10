@@ -47,7 +47,7 @@ def reproducir_sonido_fin():
     """Intenta reproducir sonido con múltiples reproductores"""
     # 1. Buscar el archivo WAV local
     carpeta_actual = os.path.dirname(os.path.abspath(__file__))
-    ruta_sonido = os.path.join(carpeta_actual, "alert.wav")
+    ruta_sonido = os.path.join(carpeta_actual, "updatepelgo-success-221935.wav")
     
     # 2. Obtener usuario real (para saltar bloqueo de root)
     usuario_real = os.getenv('SUDO_USER') or os.getenv('USER')
