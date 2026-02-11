@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Dependencias: sudo python3 -m pip install rar alsa-utils sox libsox-fmt-all google-generativeai python-dotenv colorama pyfiglet python-nmap fpdf --break-system-packages
-# sudo apt install clamav
+# Dependencias: sudo python3 -m pip  google-generativeai python-dotenv colorama pyfiglet python-nmap fpdf --break-system-packages
+# sudo apt update && sudo apt install clamav install rar alsa-utils sox libsox-fmt-all
 # NOTA: Ejecutar con sudo para que Nmap funcione en modo Flood.
 
 import os
