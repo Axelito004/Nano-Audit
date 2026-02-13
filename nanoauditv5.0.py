@@ -165,6 +165,7 @@ def consultar_ia(contexto, datos):
 INFORME TECNICO
 Fecha: {datetime.datetime.now()}
 Modulo: {contexto}
+Hecho por: Ing. Angel G. Castillo Giménez.
 =========================================
 {response.text}
 =========================================
