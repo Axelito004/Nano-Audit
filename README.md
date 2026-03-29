@@ -1,7 +1,7 @@
 # 🛡️ NanoAudit v5.1
 
 ![Version](https://img.shields.io/badge/Version-5.1%20Final-blue)
-![Python](https://img.shields.io/badge/Python-3.x-yellow)
+![Python](https://img.shields.io/badge/Python-3.10-yellow)
 ![OS](https://img.shields.io/badge/OS-Kali%20Linux-red)
 ![AI](https://img.shields.io/badge/AI-Gemini%202.5%20Flash-purple)
 
