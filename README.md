@@ -1,4 +1,4 @@
-# 🛡️ NanoAudit v5.1
+# 🛡️ NanoAudit v5.0
 
 ![Version](https://img.shields.io/badge/Version-5.1%20Final-blue)
 ![Python](https://img.shields.io/badge/Python-3.10-yellow)
@@ -51,5 +51,5 @@ NanoAudit utiliza el modelo **Gemini 2.5 Flash** para generar los informes ejecu
 ### Dependencias del Sistema OS
 Asegúrate de tener instalados los siguientes paquetes en tu distribución Linux:
 ```bash
-sudo apt update
-sudo apt install clamav nmap stress-ng unrar alsa-utils sox -y
+sudo python3 -m pip  google-generativeai python-dotenv colorama pyfiglet python-nmap fpdf --break-system-packages
+sudo apt update && sudo apt install clamav install rar alsa-utils sox libsox-fmt-all
