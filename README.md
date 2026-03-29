@@ -32,6 +32,22 @@ Desarrollada como proyecto de ingeniería de sistemas, esta suite combina el pod
 
 NanoAudit está diseñado para funcionar en entornos **Debian/Kali Linux**. Requiere privilegios de superusuario (`sudo`) para la ejecución de escaneos de red a bajo nivel.
 
+---
+## 🔑 RECUERDA QUE NECESITAS TU PROPIA API KEY
+## 🔑 ¿Cómo obtener tu API Key de Google Gemini?
+
+NanoAudit utiliza el modelo **Gemini 2.5 Flash** para generar los informes ejecutivos. Para que el módulo de IA funcione, necesitas tu propia clave de acceso gratuita. Sigue estos pasos:
+
+1. Visita la página oficial para desarrolladores: [Google AI Studio](https://aistudio.google.com/).
+2. Inicia sesión con tu cuenta de Google normal.
+3. En el panel lateral izquierdo, haz clic en el botón **"Get API key"** (Obtener clave de API).
+4. Haz clic en el botón azul **"Create API key"** y selecciona un proyecto (o crea uno nuevo si te lo pide).
+5. Copia la larga cadena de texto generada.
+6. En la carpeta de NanoAudit, crea un archivo llamado exactamente `.env` y pega tu clave con este formato:
+
+   ```env
+   GOOGLE_API_KEY=AIzaSyTuClaveSecretaGeneradaAqui...
+
 ### Dependencias del Sistema OS
 Asegúrate de tener instalados los siguientes paquetes en tu distribución Linux:
 ```bash
